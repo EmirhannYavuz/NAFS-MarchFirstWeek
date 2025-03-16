@@ -10,9 +10,9 @@ class Program
     static void Main(string[] args)
     {
         IProgrammingLanguageRepository languageRepository = new InMemoryProgrammingLanguageRepository();
-        ITechnologyRepository technologyRepository = new InMemoryTechnologyRepository();
+        ITechnologyRepository technologyRepository = new InMemoryTechnologyRepository(languageRepository);
         ProgrammingLanguageService languageService = new ProgrammingLanguageService(languageRepository);
-        TechnologyService technologyService = new TechnologyService(technologyRepository);
+        TechnologyService technologyService = new TechnologyService(technologyRepository, languageService);
 
         while (true)
         {
@@ -72,10 +72,10 @@ class Program
                     break;
 
                 case "2":
-                    Console.Write("Dil Adı: ");
+                    Console.Write("Eklenecek Dil Adı: ");
                     string name = Console.ReadLine();
                     languageService.Add(new ProgrammingLanguage { Name = name });
-                    Console.WriteLine("Dil başarıyla eklendi.");
+                    Console.WriteLine($"{name} başarıyla eklendi.");
                     break;
 
                 case "3":
@@ -84,14 +84,14 @@ class Program
                     Console.Write("Yeni Ad: ");
                     string newName = Console.ReadLine();
                     languageService.Update(new ProgrammingLanguage { Id = updateId, Name = newName });
-                    Console.WriteLine("Dil başarıyla güncellendi.");
+                    Console.WriteLine($"Yeni isim {newName} olarak başarıyla güncellendi.");
                     break;
 
                 case "4":
                     Console.Write("Silinecek Dilin ID'si: ");
                     int deleteId = Convert.ToInt32(Console.ReadLine());
                     languageService.Delete(deleteId);
-                    Console.WriteLine("Dil başarıyla silindi.");
+                    Console.WriteLine($"Id {deleteId} başarıyla silindi.");
                     break;
 
                 case "5":
@@ -144,13 +144,31 @@ class Program
                         Console.WriteLine($"ID: {lang.Id} - Ad: {lang.Name}");
                     }
 
-                    Console.Write("Teknoloji Adı: ");
-                    string techName = Console.ReadLine();
-                    Console.Write("Programlama Dili ID: ");
-                    int langId = Convert.ToInt32(Console.ReadLine());
-                    technologyService.Add(new Technology { Name = techName, ProgrammingLanguageId = langId });
-                    Console.WriteLine("Teknoloji başarıyla eklendi.");
-                    break;
+                    if (languages.Count == 0)
+                    {
+                        Console.WriteLine("Programlama dili bulunamadığı için teknoloji eklenemez! Önce bir programlama dili ekleyin.");
+                        break;  
+                    }
+                    else
+                    {
+                        Console.Write("Eklenecek Teknoloji Adı: ");
+                        string techName = Console.ReadLine();
+                        Console.Write($"{techName} isimli teknoloji hangi Id değerli programlama diline ait: ");
+                        int langId = Convert.ToInt32(Console.ReadLine());
+
+                        // Burada Programlama Dili ID'si kontrolü yapılır
+                        var language = languageService.GetById(langId);
+                        if (language == null)
+                        {
+                            Console.WriteLine("Geçersiz Programlama Dili ID'si. Teknoloji eklenemedi.");
+                            break; // Teknoloji ekleme işlemi yapılmaz
+                        }
+
+                        technologyService.Add(new Technology { Name = techName, ProgrammingLanguageId = langId });
+                        Console.WriteLine($"{techName} başarıyla eklendi.");
+                        break;
+                    }
+                    
 
                 case "3":
                     Console.Write("Güncellenecek Teknolojinin ID'si: ");
@@ -160,14 +178,14 @@ class Program
                     Console.Write("Yeni Programlama Dili ID: ");
                     int newLangId = Convert.ToInt32(Console.ReadLine());
                     technologyService.Update(new Technology { Id = techUpdateId, Name = techNewName, ProgrammingLanguageId = newLangId });
-                    Console.WriteLine("Teknoloji başarıyla güncellendi.");
+                    Console.WriteLine($"Yeni isim {techNewName}, yeni programlama dil Id'si {newLangId} olarak başarıyla güncellendi.");
                     break;
 
                 case "4":
                     Console.Write("Silinecek Teknolojinin ID'si: ");
                     int techDeleteId = Convert.ToInt32(Console.ReadLine());
                     technologyService.Delete(techDeleteId);
-                    Console.WriteLine("Teknoloji başarıyla silindi.");
+                    Console.WriteLine($"Id {techDeleteId} başarıyla silindi.");
                     break;
 
                 case "5":

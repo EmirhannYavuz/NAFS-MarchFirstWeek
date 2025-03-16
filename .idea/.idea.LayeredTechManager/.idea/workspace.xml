@@ -8,11 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="596f96d1-c5ca-42b6-8b55-650ca132cdea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LayeredTechManager/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LayeredTechManager/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LayeredTechManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LayeredTechManager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Core.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entities.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entities.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LayeredTechManager.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LayeredTechManager.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Concrete/ProgrammingLanguageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Concrete/ProgrammingLanguageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Concrete/TechnologyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Concrete/TechnologyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Concrete/InMemoryProgrammingLanguageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Concrete/InMemoryProgrammingLanguageRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/Concrete/InMemoryTechnologyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Concrete/InMemoryTechnologyRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentation/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,10 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -59,6 +64,7 @@
   &quot;keyToString&quot;: {
     &quot;.NET Project.Presentation.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -99,14 +105,28 @@
       <updated>1739087954415</updated>
       <workItem from="1739087955478" duration="260000" />
       <workItem from="1742041929425" duration="2709000" />
+      <workItem from="1742044646234" duration="2220000" />
+      <workItem from="1742140226730" duration="3828000" />
     </task>
+    <task id="LOCAL-00001" summary="Add project reference to Core and enhance program structure with menus">
+      <option name="closed" value="true" />
+      <created>1742046252855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742046252855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Add project reference to Core and enhance program structure with menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add project reference to Core and enhance program structure with menus" />
   </component>
 </project>
